@@ -1,0 +1,39 @@
+workflows:
+  toss-ios-testflight:
+    name: Toss iOS TestFlight
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    environment:
+      xcode: latest
+      vars:
+        XCODE_PROJECT: "Toss.xcodeproj"
+        XCODE_SCHEME: "Toss"
+        BUNDLE_ID: "com.kerem.toss"
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: "com.kerem.toss"
+      groups:
+        - app_store_connect
+    scripts:
+      - name: Show Xcode version
+        script: xcodebuild -version
+      - name: Resolve project signing
+        script: |
+          xcode-project use-profiles \
+            --project "$XCODE_PROJECT" \
+            --target "$XCODE_SCHEME"
+      - name: Build signed IPA
+        script: |
+          xcode-project build-ipa \
+            --project "$XCODE_PROJECT" \
+            --scheme "$XCODE_SCHEME"
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
+        beta_groups:
+          - Internal Testers

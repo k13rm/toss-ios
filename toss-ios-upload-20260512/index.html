@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toss Mirror</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="mirror-stage" aria-label="Toss Mirror Windows Preview">
+      <section class="device" aria-label="iPhone preview">
+        <div class="bezel-glow"></div>
+        <div class="dynamic-island" aria-hidden="true"></div>
+        <div class="screen">
+          <div class="liquid-bg" aria-hidden="true">
+            <span class="blob blob-a"></span>
+            <span class="blob blob-b"></span>
+            <span class="blob blob-c"></span>
+            <span class="mesh"></span>
+          </div>
+
+          <section class="app-view login-view" data-screen="login">
+            <div class="safe-content login-layout">
+              <div class="brand-stack">
+                <div class="app-icon glass-card">🧺</div>
+                <p class="micro">Toss Mirror</p>
+                <h1>Toss</h1>
+                <p class="subtitle">Point. Decide. Make room.</p>
+              </div>
+
+              <div class="auth-stack">
+                <button class="auth-button apple-auth" data-auth="apple" aria-label="Sign in with Apple">
+                  <span class="apple-mark"></span>
+                  <span>Sign in with Apple</span>
+                </button>
+                <button class="auth-button google-auth" data-auth="google" aria-label="Sign in with Google">
+                  <span class="google-mark" aria-hidden="true">
+                    <span class="g-blue">G</span>
+                  </span>
+                  <span>Sign in with Google</span>
+                </button>
+                <button class="text-button" id="demo-login">Continue with demo</button>
+                <p class="fine-print">
+                  10 days free. In the real iOS app, Apple subscriptions renew automatically unless cancelled.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="app-view survey-view" data-screen="survey">
+            <div class="safe-content flow-layout">
+              <header class="flow-header">
+                <p class="micro">Quick setup</p>
+                <h2>Make Toss feel personal.</h2>
+                <div class="progress-rail" aria-label="Survey progress">
+                  <span id="survey-progress"></span>
+                </div>
+              </header>
+
+              <article class="glass-card survey-card">
+                <p class="micro" id="survey-step-label">Step 1 of 3</p>
+                <h3 id="survey-question">Where should Toss help first?</h3>
+                <div class="option-list" id="survey-options"></div>
+              </article>
+
+              <button class="primary-button" id="survey-next">
+                <span>Next</span>
+                <span>→</span>
+              </button>
+            </div>
+          </section>
+
+          <section class="app-view paywall-view" data-screen="paywall">
+            <div class="safe-content paywall-layout">
+              <header class="paywall-hero">
+                <div class="diamond glass-card">💎</div>
+                <p class="micro">Toss Premium</p>
+                <h2>Start 10 days free.</h2>
+                <p>
+                  Choose Basic, Pro, or Max. Real billing is handled by StoreKit and App Store Connect in the iOS app.
+                </p>
+              </header>
+
+              <div class="plans" id="plans">
+                <button class="plan glass-card" data-plan="Basic">
+                  <span class="plan-emoji">🌱</span>
+                  <span>
+                    <strong>Basic</strong>
+                    <small>50 scans, simple decisions, history</small>
+                  </span>
+                  <b>$3.99</b>
+                </button>
+                <button class="plan glass-card selected" data-plan="Pro">
+                  <em>Popular</em>
+                  <span class="plan-emoji">✨</span>
+                  <span>
+                    <strong>Pro</strong>
+                    <small>Unlimited scans, resale drafts, smart rooms</small>
+                  </span>
+                  <b>$7.99</b>
+                </button>
+                <button class="plan glass-card" data-plan="Max">
+                  <span class="plan-emoji">💎</span>
+                  <span>
+                    <strong>Max</strong>
+                    <small>Family sharing, moving mode, proof vault</small>
+                  </span>
+                  <b>$14.99</b>
+                </button>
+              </div>
+
+              <button class="primary-button" id="start-trial">
+                <span>Start 10-day trial</span>
+                <span>↗</span>
+              </button>
+              <p class="fine-print">Preview only. No charge happens in this Windows mirror.</p>
+            </div>
+          </section>
+
+          <section class="app-view dashboard-view" data-screen="dashboard">
+            <div class="safe-content dashboard-layout">
+              <header class="dashboard-header">
+                <div>
+                  <p class="micro">Trial active · <span id="days-left">10</span> days left</p>
+                  <h2>Toss</h2>
+                  <p class="dashboard-subtitle" id="dashboard-subtitle">Bedroom · Gentle push</p>
+                </div>
+                <button class="icon-button glass-card" id="settings-open" aria-label="Open settings">⚙</button>
+              </header>
+
+              <nav class="segmented glass-card" aria-label="Dashboard tabs">
+                <button class="segment active" data-tab="decide">🧺 Decide</button>
+                <button class="segment" data-tab="scan">📸 Scan</button>
+                <button class="segment" data-tab="rooms">🏠 Rooms</button>
+              </nav>
+
+              <div class="tab-panel active" data-panel="decide">
+                <article class="item-card glass-card" id="item-card">
+                  <div class="item-art" id="item-emoji">👟</div>
+                  <div class="item-meta">
+                    <div class="meta-row">
+                      <span id="item-category">Closet</span>
+                      <b id="item-score">28% keep</b>
+                    </div>
+                    <h3 id="item-name">Old running shoes</h3>
+                    <p id="item-reason">Worn soles, duplicate pair, low resale value.</p>
+                  </div>
+                </article>
+
+                <div class="decision-row">
+                  <button class="decision donate" data-action="donate">🎁 <span>Donate</span></button>
+                  <button class="decision keep" data-action="keep">💚 <span>Keep</span></button>
+                  <button class="decision toss" data-action="toss">🗑 <span>Toss</span></button>
+                </div>
+
+                <div class="stats-row">
+                  <div class="stat glass-card"><span>📦</span><b>12</b><small>sorted</small></div>
+                  <div class="stat glass-card"><span>🪄</span><b>4</b><small>tossed</small></div>
+                  <div class="stat glass-card"><span>🌱</span><b>3</b><small>donated</small></div>
+                </div>
+              </div>
+
+              <div class="tab-panel" data-panel="scan">
+                <article class="scan-card glass-card">
+                  <div class="viewfinder">
+                    <span>📸</span>
+                    <i></i>
+                  </div>
+                  <h3>Scan a shelf, drawer, or mystery box.</h3>
+                  <p>Toss groups duplicates, finds easy tosses, and keeps the decision light.</p>
+                  <button class="primary-button compact" id="scan-button">
+                    <span>Scan clutter</span>
+                    <span>✨</span>
+                  </button>
+                </article>
+              </div>
+
+              <div class="tab-panel" data-panel="rooms">
+                <div class="room-list">
+                  <button class="room glass-card"><span>🛏</span><b>Bedroom</b><small>14 items</small></button>
+                  <button class="room glass-card"><span>👕</span><b>Closet</b><small>31 items</small></button>
+                  <button class="room glass-card"><span>📦</span><b>Storage</b><small>48 items</small></button>
+                  <button class="room glass-card"><span>🍳</span><b>Kitchen</b><small>19 items</small></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="toast glass-card" id="toast" role="status" aria-live="polite"></div>
+          </section>
+
+          <aside class="settings-sheet" id="settings-sheet" aria-label="Settings" aria-hidden="true">
+            <div class="settings-scrim" id="settings-close-area"></div>
+            <div class="settings-panel glass-card">
+              <div class="sheet-handle"></div>
+              <div class="settings-title">
+                <h3>Settings</h3>
+                <button class="icon-button" id="settings-close" aria-label="Close settings">×</button>
+              </div>
+
+              <div class="settings-block">
+                <p class="micro">Appearance</p>
+                <div class="theme-picker glass-card" role="group" aria-label="Theme picker">
+                  <button class="theme-option" data-theme="dark">Dark</button>
+                  <button class="theme-option" data-theme="light">Light</button>
+                  <button class="theme-option" data-theme="system">System</button>
+                </div>
+              </div>
+
+              <div class="settings-block">
+                <p class="micro">Demo state</p>
+                <button class="danger-button" id="reset-demo">Reset onboarding</button>
+              </div>
+            </div>
+          </aside>
+
+          <div class="home-indicator" aria-hidden="true"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
